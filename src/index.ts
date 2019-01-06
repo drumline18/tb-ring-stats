@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import puppeteer from 'puppeteer';
-// const fs = require("nano-fs"); // promise-based 'fs'
+
+const {nbRolls, nbCycles} = require('../appSettings.json');
 
 (async () => {
   try {
@@ -14,14 +15,14 @@ import puppeteer from 'puppeteer';
 
     await page.addScriptTag({ path: "./dist/recorder.js" });
 
-    while (counter < 12) {
+    while (counter < nbCycles) {
       const record = await page.evaluate(async () => {
         try {
           // @ts-ignore
           const rollRecorder = new Recorder();
 
           return new Promise(resolve => {
-            rollRecorder.start(100, (data: Array<Array<string | number>>) => {
+            rollRecorder.start(nbRolls, (data: Array<Array<string | number>>) => {
               resolve(data);
             });
           });
@@ -30,7 +31,9 @@ import puppeteer from 'puppeteer';
         }
       });
 
-      await fs.writeFile(`./output/data-${counter}.json`, JSON.stringify(record));
+      // await fs.writeFile(`./output/data-${counter}.json`, JSON.stringify(record));
+
+      await fs.outputJSON(`./output/data-${counter}.json`, record);
 
       counter++;
 
@@ -42,3 +45,5 @@ import puppeteer from 'puppeteer';
     console.log(e);
   }
 })();
+
+console.log(nbRolls,nbCycles);
