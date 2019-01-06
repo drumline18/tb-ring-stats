@@ -1,4 +1,4 @@
-# TronBet.io ring stats
+# Tronbet.io Ring Stats
 
 Trying to make stats over time for the ring game on tronbet.io
 
@@ -15,6 +15,7 @@ Clone this repository and run :
 
 ```sh
 npm install
+npm run build
 ```
 
 ## Usage
