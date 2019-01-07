@@ -20,7 +20,7 @@ npm run build
 
 ## Usage
 
-Configure desired options in appSettings.json and run :
+Configure desired options in `appSettings.json` and run :
 
 ```sh
 npm start
