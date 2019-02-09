@@ -68,6 +68,9 @@ function countBy(arr: any[], iteratee: (obj: any) => any): { [key: string]: numb
 
 export default async function analyzer (FOLDER:string) {
 
+  // TODO: The files retrieval and concatenation should be split somewhere else
+
+
   const PATH = path.join('data', FOLDER);
 
   let data : any[] = [];
