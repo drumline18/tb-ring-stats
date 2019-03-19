@@ -1,6 +1,10 @@
+### Tronbet has changed UI and I have lost interest. window.socket3 is not accessible unless you search for the right spot to place a breakpoint.
+
+
 # Tronbet.io Ring Stats
 
 Trying to make stats over time for the ring game on tronbet.io
+
 
 ## Table of Contents
 
